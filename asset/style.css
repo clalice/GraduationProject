@@ -1,0 +1,22 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+}
+
+#console {
+    width: 20%;
+    background-color: #f4f4f4;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-right: 1px solid black;
+}
+
+#game-canvas {
+    width: 100%;
+    max-width: 900px;
+    height: 700px;
+    border: 1px solid black;
+}

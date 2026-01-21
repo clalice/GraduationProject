@@ -1,0 +1,48 @@
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="./style1.css" type="text/css">
+    </head>
+
+    <body>
+        <div class="navbar_section">
+            <div class="navbar_main">
+                <a class="navbar_logo" href="/">로고</a>
+                <div class="navbar_links">
+                    <a href="/gameselect.html">Game</a> <!-- .jsp에서 .html로 변경 -->
+                    <a href="/Rule.html">Rule</a>
+                    <a href="/login.html">Login</a>
+                    <a href="/register.html">Register</a>
+                    <a href="/mypage">My Page</a> <!-- 절대 경로로 변경 -->
+                    <a href="/ranking">Ranking</a>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- Registration Form Section -->
+        <div class="form_section">
+            <div class="container">
+                <h1>회원가입</h1>
+                <form action="./auth/register_process" method="post">
+                    <label for="username">유저이름</label>
+                    <input type="text" id="username" name="username" placeholder="유저이름">
+                    <label for="pwd">비밀번호</label>
+                    <input type="password" id="pwd" name="pwd" placeholder="비밀번호">
+                    <label for="pwd2">비밀번호 재확인</label>
+                    <input type="password" id="pwd2" name="pwd2" placeholder="비밀번호 재확인">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="이메일">
+                    <input type="submit" value="제출">
+                </form>
+                <p><a class="link" href="./login.html">로그인 화면으로 돌아가기</a></p>
+            </div>
+        </div>
+    </body>
+
+    </html>

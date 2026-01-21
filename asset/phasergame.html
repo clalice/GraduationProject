@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent mobile zoom -->
+    <title>Ad astra per aspera</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background-color: #87CEEB; /* Sky blue background */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: flex-start; /* Align items at the start */
+        }
+
+        #console {
+            width: 80%;
+            height: calc(30% - 20px); /* Adjust height for better fit */
+            overflow-y: auto;
+            background-color: #222;
+            color: #fff;
+            padding: 5px;
+            box-sizing: border-box;
+            margin: 10px auto; /* Center the console with margin */
+        }
+
+        #console-output {
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: auto;
+            max-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center text inside the console */
+        }
+
+        #game-container {
+            width: 80%; /* Game container takes 80% width */
+            height: calc(70% + 20px); /* Full height minus console height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto; /* Center the game container */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            #console {
+                width: 100%; /* Console takes full width */
+                height: 20%; /* Console takes 20% height */
+                margin: 0; /* Remove margin for better layout */
+            }
+
+            #game-container {
+                width: 100%; /* Game container takes full width */
+                height: 80%; /* Game container takes 80% height */
+                margin: 0; /* Remove margin for better layout */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="console">
+        <h2>Console</h2>
+        <div id="console-output"></div>
+    </div>
+    <div id="game-container"></div>
+    <script src="game.js"></script>
+</body>
+</html>

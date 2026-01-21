@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="./style1.css" type="text/css">
+    <link rel="stylesheet" href="./mainpage.css" type="text/css"> <!-- Separate CSS for this page -->
+</head>
+
+<body>
+    <div class="navbar_section">
+        <div class="navbar_main">
+            <a class="navbar_logo" href="/">로고</a>
+            <div class="navbar_links">
+                <a href="/gameselect.html">Game</a>
+                <a href="/Rule.html">Rule</a>
+                <a href="/login.html">Login</a>
+                <a href="/register.html">Register</a>
+                <a href="/mypage">My Page</a>
+                <a href="/ranking">Ranking</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+      <div class="content_section">
+        <div class="welcome_message">
+            <h1>메인 페이지에 오신 것을 환영합니다.</h1>
+            <p>두 가지 게임을 플레이해 보세요!</p>
+            <img src="./image/logo.png" alt="Polyplayportal Logo" style="width: 200px; height: auto;">
+          
+        </div>
+    </div>
+
+
+        <div class="games_section">
+            <!-- Game 1 Section -->
+            <div class="game_card">
+                <img src="./image/screenshot1.png" alt="Jump Game Screenshot" class="game_screenshot">
+                <h2>게임 1: 역경을 헤치고 별을 향해</h2>
+                <p>혼자서 높은 곳으로 도약하며 별을 향해 나아가는 픽셀 그래픽의 점프 게임입니다. 장애물을 피하고, 더블 점프를 활용하여 목표에 도달하세요!</p>
+            </div>
+
+            <!-- Game 2 Section -->
+            <div class="game_card">
+                <img src="./image/screenshot2.PNG" alt="Coop Game Screenshot" class="game_screenshot">
+                <h2>게임 2: 협동 탐험: 미스테리 던전</h2>
+                <p>두 명의 플레이어가 협력하여 퍼즐을 풀고 던전을 탐험하세요. 힌트를 주고받으며 미스터리를 해결하고 포탈을 찾으세요!</p>
+            </div>
+        </div>
+
+        <!-- Site Guide Section -->
+        <div class="site_guide">
+            <h2>사이트 안내</h2>
+            <p>로그인 후 마이페이지에 접속하여 개인정보를 확인하세요. 또한, 규칙을 읽고 협동 게임을 위한 전략을 세우세요!</p>
+        </div>
+
+        <!-- Game Update and Bug Reporting Section -->
+        <div class="report_section">
+            <h2>게임 업데이트 및 문제 보고</h2>
+            <p>현재 게임에서 경험하고 있는 문제를 알려주세요:</p>
+            <ul>
+                <li>게임 1: 첫 번째 게임 화면 이 축소되는 오류가 있습니다..</li>
+                <li>게임 2: 첫 접속 시 레버가 내려가거나 활성화될 경우 재접속 해주시기 바랍니다.</li>
+                <li>서버 용량 문제로 인해 소켓 유지 시간 문제로 쿠키에 UID가 저장이 안될 가능성이 있습니다.</li>
+            </ul>
+            <form action="/submit-report" method="POST">
+                <textarea name="report" rows="5" placeholder="추가 리포팅 칸" required></textarea>
+                <br>
+                <button type="submit">보고하기</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
