@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="./style1.css" type="text/css">
+    <link rel="stylesheet" href="./mycss.css" type="text/css">
+</head>
+<body>
+    <div class="navbar_section">
+        <div class="navbar_main">
+            <a class="navbar_logo" href="/">로고</a>
+            <div class="navbar_links">
+                <a href="/gameselect.html">Game</a>
+                <a href="/Rule.html">Rule</a>
+                <a href="/login.html">Login</a>
+                <a href="/register.html">Register</a>
+                <a href="/mypage">My Page</a>
+                <a href="/ranking">Ranking</a>
+            </div>
+        </div>
+    </div>
+
+<br>
+<br>
+
+<h1>마이페이지</h1>
+<h2>사용자 정보</h2>
+<table class="user-info-table">
+    <tr>
+        <th>항목</th>
+        <th>값</th>
+    </tr>
+    <tr>
+        <td>사용자 ID</td>
+        <td><span id="userId"><%= userData.id %></span></td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td><span id="email"><%= userData.email %></span></td>
+    </tr>
+    <tr>
+        <td>UID</td>
+        <td><span id="uid"><%= userData.uid %></span></td>
+    </tr>
+    <tr>
+        <td>승리 횟수</td>
+        <td><span id="wincount"><%= userData.wincount %></span></td>
+    </tr>
+    <tr>
+        <td>패배 횟수</td>
+        <td><span id="losecount"><%= userData.losecount %></span></td>
+    </tr>
+    <tr>
+        <td>승률</td>
+        <td><span id="rate"><%= userData.rate %></span></td>
+    </tr>
+    <tr>
+        <td>플레이 횟수</td>
+        <td><span id="playcount"><%= userData.playcount %></span></td>
+    </tr>
+</table>
+
+<h2>게임 데이터</h2>
+<div id="gameDataContainer">
+    <table class="game-data-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player Name</th>
+                <th>Clear Time</th>
+                <th>Item Count</th>
+                <th>Win Rate</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% rankingData.forEach((row, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= row.player_name %></td>
+                    <td><%= row.cleartime %></td>
+                    <td><%= row.itemcount %></td>
+                    <td><%= row.winrate %></td>
+                    <td><%= row.score %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

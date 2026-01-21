@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1, maximum-scale=1, user-scalable=no"> <!-- 모바일에서 적절한 스케일 유지 -->
+  <title>2인용 던전게임</title>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+    }
+
+    /* 우측 패널 */
+    #right-panel {
+      width: 100%; /* 모바일에서도 전체 너비 사용 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ddd;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    /* 게임 컨테이너 */
+    #game-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 중앙 정렬된 console과 chat-input */
+    body, html {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #87CEEB;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    #console {
+      width: 80%;
+      height: calc(50% - 40px);
+      overflow-y: auto;
+      background-color: #222;
+      color: #fff;
+      padding: 5px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    #chat-input {
+      width: 80%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    /* 반응형 디자인 */
+    @media screen and (max-width: 768px) {
+      #right-panel {
+        width: 100%;
+        height: 100%;
+      }
+
+      #console {
+        height: calc(40% - 40px);
+      }
+
+      #game-container {
+        height: 100%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      #right-panel {
+        width: 100%;
+      }
+
+      #game-container {
+        width: 100%;
+        height: auto;
+      }
+
+      #console {
+        width: 90%; /* 모바일에서 콘솔이 더 크게 보이도록 */
+      }
+
+      #chat-input {
+        width: 90%; /* 입력창도 더 크게 */
+      }
+    }
+
+    @media only screen and (min-width: 601px) {
+      #game-container {
+        width: 75%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="right-panel">
+    <div id="game-container">
+      <script src="./socketgame.js"></script>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="console">
+      <p>Welcome to the chat console!</p>
+    </div>
+    <input type="text" id="chat-input" placeholder="Type a message...">
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+/* 마이페이지 전용 스타일 */
+body {
+    line-height: 1.6;
+}
+
+/* 마이페이지 컨테이너 */
+.mypage-container {
+    max-width: 800px;
+    margin: 100px auto 50px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 섹션 타이틀 */
+.mypage-container h2 {
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* 사용자 정보 텍스트 */
+.mypage-container p {
+    font-size: 1.2em;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+/* 게임 데이터 스타일 */
+.game-data {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid #007bff;
+    border-radius: 10px;
+}
+
+.game-data p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #495057;
+}
+
+.game-data hr {
+    border: none;
+    border-top: 1px solid #ced4da;
+    margin: 15px 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .mypage-container {
+        padding: 15px;
+        margin-top: 120px;
+    }
+
+    .mypage-container h2 {
+        font-size: 1.5em;
+    }
+
+    .mypage-container p {
+        font-size: 1em;
+    }
+
+    .game-data {
+        padding: 10px;
+    }
+}
+/* 사용자 정보 테이블 스타일 */
+.user-info-table {
+    width: 80%;
+    margin: 30px auto; /* 가운데 정렬 */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-info-table th, .user-info-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-info-table th {
+    background-color: #4a90e2; /* 밝은 파란색 헤더 */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.user-info-table td {
+    background-color: #f4f6f8; /* 밝은 배경 */
+    color: #333;
+}
+
+.user-info-table tr:last-child td {
+    border-bottom: none; /* 마지막 행의 하단 경계선 제거 */
+}
+
+/* 짝수 행에 다른 배경색 적용 */
+.user-info-table tr:nth-child(even) td {
+    background-color: #e9eff5;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .user-info-table {
+        width: 100%;
+    }
+
+    .user-info-table th, .user-info-table td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}

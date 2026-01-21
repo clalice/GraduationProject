@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Ranking</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+      font-weight: 500;
+    }
+
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      color: #333;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #eaeaea;
+      transition: background-color 0.2s ease;
+    }
+
+    .navbar_main {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .navbar_logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-decoration: none;
+      color: #343a40;
+      margin-right: 10px;
+    }
+
+    .navbar_links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .navbar_links a {
+      text-decoration: none;
+      color: #343a40;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    .navbar_links a:hover {
+      color: #007bff;
+    }
+
+    .container {
+      padding-top: 100px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="navbar_section">
+    <div class="navbar_main">
+        <a class="navbar_logo" href="/">로고</a>
+        <div class="navbar_links">
+            <a href="/gameselect.html">Game</a> <!-- .jsp에서 .html로 변경 -->
+            <a href="/Rule.html">Rule</a>
+            <a href="/login.html">Login</a>
+            <a href="/register.html">Register</a>
+            <a href="/mypage.html">My Page</a> <!-- 절대 경로로 변경 -->
+            <a href="/ranking">Ranking</a>
+        </div>
+    </div>
+</div>
+  <div class="container">
+    <h1>Game Ranking</h1>
+
+    <h2>Game 1 Jump Game Table</h2>
+    <table id="rankingTable">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player Name</th>
+          <th>Clear Time</th>
+          <th>Item Count</th>
+          <th>Win Rate</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% rankingData.forEach((row, index)=> { %>
+          <tr id="row_<%= index %>">
+            <td><%= index + 1 %></td>
+            <td><%= row.player_name %></td>
+            <td><%= row.cleartime %></td>
+            <td><%= row.itemcount %></td>
+            <td><%= row.winrate %></td>
+            <td><%= row.score %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <h2>Game 2 Socket Game Table</h2>
+    <table id="ranking2Table">
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Clear Time</th>
+          <th>Role</th>
+          <th>Score</th>
+          <th>Play Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ranking2Data.forEach((row, index)=> { %>
+          <tr id="row_<%= index %>">
+            <td><%= row.player_name %></td>
+            <td><%= row.clearTime %></td>
+            <td><%= row.Role %></td>
+            <td><%= row.score %></td>
+            <td><%= row.playcount %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function refreshPage() {
+      $.ajax({
+        url: '/ranking',
+        method: 'GET',
+        success: function (data) {
+          $('#rankingTable tbody').html($(data).find('#rankingTable tbody').html());
+          $('#ranking2Table tbody').html($(data).find('#ranking2Table tbody').html());
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      setInterval(refreshPage, 5000);
+    });
+  </script>
+</body>
+
+</html>
